@@ -1,7 +1,7 @@
-/**
+/*
 * @license Apache-2.0
 *
-* Copyright (c) 2018 The Stdlib Authors.
+* Copyright (c) 2021 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,24 +16,19 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 2.0
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var isSingleSegmentCompatible = require( '@stdlib/ndarray-base-assert-is-single-segment-compatible' );
-var iterationOrder = require( '@stdlib/ndarray-base-iteration-order' );
-var isColumnMajor = require( '@stdlib/ndarray-base-assert-is-column-major' );
-
-
-// MAIN //
+import { ArrayLike } from '@stdlib/types/array';
 
 /**
 * Returns a boolean indicating if an array is column-major contiguous.
 *
-* @param {NonNegativeIntegerArray} shape - array shape
-* @param {IntegerArray} strides - stride array
-* @param {NonNegativeInteger} offset - index offset
-* @returns {boolean} boolean indicating if an array is column-major contiguous
+* @param shape - array shape
+* @param strides - stride array
+* @param offset - index offset
+* @returns boolean indicating if an array is column-major contiguous
 *
 * @example
 * var shape = [ 2, 2 ];
@@ -59,15 +54,9 @@ var isColumnMajor = require( '@stdlib/ndarray-base-assert-is-column-major' );
 * var bool = isColumnMajorContiguous( shape, strides, offset );
 * // returns false
 */
-function isColumnMajorContiguous( shape, strides, offset ) {
-	return (
-		iterationOrder( strides ) !== 0 &&
-		isColumnMajor( strides ) &&
-		isSingleSegmentCompatible( shape, strides, offset )
-	);
-}
+declare function isColumnMajorContiguous( shape: ArrayLike<number>, strides: ArrayLike<number>, offset: number ): boolean; // tslint-disable-line max-line-length
 
 
 // EXPORTS //
 
-module.exports = isColumnMajorContiguous;
+export = isColumnMajorContiguous;
