@@ -1,5 +1,48 @@
-"use strict";var t=function(e,r){return function(){return r||e((r={exports:{}}).exports,r),r.exports}};var u=t(function(v,i){
-var n=require('@stdlib/ndarray-base-assert-is-single-segment-compatible/dist'),a=require('@stdlib/ndarray-base-iteration-order/dist'),s=require('@stdlib/ndarray-base-assert-is-column-major/dist');function m(e,r,o){return a(r)!==0&&s(r)&&n(e,r,o)}i.exports=m
-});var l=u();module.exports=l;
 /** @license Apache-2.0 */
-//# sourceMappingURL=index.js.map
+
+'use strict';
+
+/**
+* Determine if an array is column-major contiguous.
+*
+* @module @stdlib/ndarray-base-assert-is-column-major-contiguous
+*
+* @example
+* var isColumnMajorContiguous = require( '@stdlib/ndarray-base-assert-is-column-major-contiguous' );
+*
+* var shape = [ 2, 2 ];
+* var strides = [ 1, 2 ];
+* var offset = 0;
+*
+* var bool = isColumnMajorContiguous( shape, strides, offset );
+* // returns true
+*
+* @example
+* var isColumnMajorContiguous = require( '@stdlib/ndarray-base-assert-is-column-major-contiguous' );
+*
+* var shape = [ 2, 2 ];
+* var strides = [ 1, -2 ];
+* var offset = 2;
+*
+* var bool = isColumnMajorContiguous( shape, strides, offset );
+* // returns false
+*
+* @example
+* var isColumnMajorContiguous = require( '@stdlib/ndarray-base-assert-is-column-major-contiguous' );
+*
+* var shape = [ 2, 2 ];
+* var strides = [ 2, 2 ];
+* var offset = 0;
+*
+* var bool = isColumnMajorContiguous( shape, strides, offset );
+* // returns false
+*/
+
+// MODULES //
+
+var main = require( './main.js' );
+
+
+// EXPORTS //
+
+module.exports = main;
